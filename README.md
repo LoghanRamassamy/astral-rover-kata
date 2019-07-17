@@ -20,7 +20,7 @@ plutôt qu'une base de donnée PostrgreSQL pour la persistence, ou le micro-fram
 l'API, etc...
 
 
-### Industrialisation ![#technique](https://img.shields.io/badge/%23technique-red.svg)
+### Industrialisation
 
 #### IND-1
 > **En tant que** PO, **je veux** avoir un feedback sur l'état du rover **afin** d'assurer sa non regression entre chaque livraison.
@@ -45,7 +45,7 @@ l'API, etc...
   * Java 9+ : S'assurer que chaque module Gradle/Maven expose un module-info.java
 
 
-### Persistence ![#technique](https://img.shields.io/badge/%23technique-red.svg) ![#fonctionnel](https://img.shields.io/badge/%23fonctionnel-blue.svg)
+### Persistence
 
 #### PER-1
 > **En tant qu**'équipe Sécurité, **je veux** que le rover enregistre l'historique des commandes exécutées **afin** d'assurer son auditabilité.
@@ -56,7 +56,6 @@ l'API, etc...
 
 
 ### API
-> ![todo](https://img.shields.io/badge/%23todo-lightgrey.svg) ![#technique](https://img.shields.io/badge/%23technique-red.svg)
 
 #### API-1
 > **En tant que** client, **je veux** récupérer la position actuelle du rover **afin** de pouvoir consulter cette information à distance.
@@ -71,11 +70,20 @@ l'API, etc...
 
 
 ### Front-end
-> ![todo](https://img.shields.io/badge/%23todo-lightgrey.svg) ![#technique](https://img.shields.io/badge/%23technique-red.svg)
 
-* Représentation graphique de la grille et du rover.
-* Saisir une suite de commandes dans un input _ou_ cliquer successivement sur les cases de la grille pour définir la prochaine action du rover.
-* Clique sur un bouton "Send" pour envoyer l'ensemble des commandes à l'API et mettre à jour la représentation graphique.
+#### FRO-1
+> **En tant que** client, **je veux** afficher le rover sur une grille **afin** de le situer dans son environnement.
+
+#### FRO-2
+> **En tant que** client, **je veux** une interface de saisie des commandes **afin** de faciliter le pilotage du rover.
+  * Saisie d'une suite de commandes dans un input _ou_ clic sur les cases de la grille pour définir la prochaine action du rover, _ou_ ...
+
+#### FRO-3
+> **En tant que** client, **je veux** visualiser l'historique des commandes exécutées **afin** d'avoir un feedback immédiat.
+
+#### FRO-4
+> **En tant que** client, **je veux** pouvoir rejouer une suite de commandes depuis l'historique **afin** de faciliter le pilotage.
+
 * Technologie de front-end : Angular, React, VueJS, WebAssembly, ...
 
 
