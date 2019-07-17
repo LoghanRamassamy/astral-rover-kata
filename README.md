@@ -20,35 +20,39 @@ plutôt qu'une base de donnée PostrgreSQL pour la persistence, ou le micro-fram
 l'API, etc...
 
 
-### Industrialisation
-> ![#todo](https://img.shields.io/badge/%23todo-lightgrey.svg) ![#technique](https://img.shields.io/badge/%23technique-red.svg)
+### Industrialisation ![#technique](https://img.shields.io/badge/%23technique-red.svg)
 
-* US 1 : En tant que PO, je veux avoir un feedback sur l'état du rover afin d'assurer sa non regression entre chaque livraison.
+#### IND-1
+> **En tant que** PO, **je veux** avoir un feedback sur l'état du rover **afin** d'assurer sa non regression entre chaque livraison.
   * Intégration continue :
     * Solutions cloud : TravisCI, CircleCI, GitlabCI ... + badge README.
     * Solution à intaller sur sa machine/serveur : Jenkins (pipeline)
 
-* US 2 : En tant que PO, je veux avoir un indicateur de qualité du code afin de garantir sa maintenabilité.
+#### IND-2
+> **En tant que** PO, **je veux** avoir un indicateur de qualité du code **afin** de garantir sa maintenabilité.
   * Couverture de code, sécurité du code, dette technique.
     * Solutions cloud : CodeCov, CoverAlls, SonarCloud ... + badge README
     * Solution à installer : Sonarqube
 
-* US 3 : En tant que PO, je veux simplifier le processus de déploiement afin de garantir le bon fonctionnement du rover quelque soit son environnement.
+#### IND-3
+> **En tant que** PO, **je veux** simplifier le processus de déploiement **afin** de garantir le bon fonctionnement du rover quelque soit son environnement.
   * Docker
   * Java 11+ : Générer un JRE custom avec jlink
 
-* US 4 : En tant qu'équipe, je veux organiser mon projet en modules afin d'isoler les responsabilités techniques.
+#### IND-4
+> **En tant qu**'équipe, **je veux** organiser mon projet en modules **afin** d'isoler les responsabilités techniques.
   * Projet multi-modules Maven/Gradle (Java), NuGet (C#)
   * Java 9+ : S'assurer que chaque module Gradle/Maven expose un module-info.java
 
 
-### Persistence
-> ![todo](https://img.shields.io/badge/%23todo-lightgrey.svg) ![#technique](https://img.shields.io/badge/%23technique-red.svg) ![#fonctionnel](https://img.shields.io/badge/%23fonctionnel-blue.svg)
+### Persistence ![#technique](https://img.shields.io/badge/%23technique-red.svg) ![#fonctionnel](https://img.shields.io/badge/%23fonctionnel-blue.svg)
 
-* US 1 : En tant qu'équipe Sécurité, je veux que le rover enregistre l'historique des commandes exécutées afin d'assurer son auditabilité.
+#### PER-1
+> **En tant qu**'équipe Sécurité, **je veux** que le rover enregistre l'historique des commandes exécutées **afin** d'assurer son auditabilité.
   * Technologie de persistence : PostgreSQL, MongoDB, Redis, H2, SQLite, ...
 
-* US 2 : En tant que PO, je veux que le rover récupère sa dernière position connue lors de son initialisation afin d'assurer sa survie en milieu hostile.
+#### PER-2
+> **En tant que** PO, **je veux** que le rover récupère sa dernière position connue lors de son initialisation **afin** d'assurer sa survie en milieu hostile.
 
 
 ### API
