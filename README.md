@@ -23,24 +23,28 @@ De même, vous êtes libre de remplacer une suggestion de technologie par une au
 
 #### IND-1
 > **En tant que** Lead Tech, **je veux** avoir un feedback automatique sur l'état du rover **afin** d'assurer sa non regression entre chaque livraison.
+
 Plusieurs pistes sont à explorer pour répondre à ce besoin :
   * Solutions cloud : TravisCI, CircleCI, GitlabCI... + badge README
   * Solution on-premise : Jenkins (pipeline)
 
 #### IND-2
 > **En tant que** Lead Tech, **je veux** mettre en place des indicateurs de qualité de code automatisés **afin** de garantir la maintenabilité du projet entre chaque livraison.
+
 On pourra mettre en place des indicateurs de couverture de code, de sécurité, d'estimation de la dette technique...
   * Solutions cloud : CodeCov, CoverAlls, SonarCloud... + badge README
   * Solution on-premise : SonarQube
 
 #### IND-3
 > **En tant que** Lead Tech, **je veux** pouvoir déployer mon produit de manière identique sur l'ensemble des environnements **afin** de faciliter l'industrialisation.
+
 Différents outils pourront vous aider dans la mise en oeuvre d'une infrastructure as code : Docker, Ansible, Puppet, Terraform.
 
 Attention cependant, les utilisateurs de Java 9+ devront créer un JRE personnalisé ne contenant que les modules nécessaires au bon fonctionnement de l'application (`jlink`).
 
 #### IND-4
 > **En tant que** Lead Tech, **je veux** faire apparaitre le concept d'architecture hexagonale dans mon projet **afin** d'isoler les responsabilités techniques.
+
 Cet objectif peut être réalisé en 2 temps :
   * Compréhension et organisation logicielle
   * Découpage du projet en sous-modules avec Maven/Gradle (Java), NuGet (C#)...
@@ -52,10 +56,12 @@ Cet objectif peut être réalisé en 2 temps :
 
 #### PER-1
 > **En tant que** PO, **je veux** que chaque commande exécutée par le rover soit enregistrée **afin** d'assurer son auditabilité.
+
 Vous pouvez utiliser différentes technologies de persistence : PostgreSQL, MongoDB, Redis, H2, SQLite...
 
 #### PER-2
 > **En tant que** PO, **je veux** que le rover s'initialise avec sa dernière position et son orientation connue **afin** de garantir un état cohérent après un redémarrage.
+
 Imaginez que votre rover, fonctionnant à l'énergie solaire, exécute une série de commandes l'amenant à se déplacer durant la journée. Le soir venu le système s'arrête. En redémarrant le lendemain, le rover doit retrouver sa position réelle afin de continuer sa mission.
 
 
@@ -74,6 +80,7 @@ Nous vous proposons l'utilisation d'une de ces technologies : Spring Boot (Java)
 
 #### API-4
 > **En tant que** client, **je veux** que le rover soit capable d'exécuter les commandes en attente suite à son redémarrage **afin** d'assurer la résilience de son système.
+
 Des commandes ont été envoyées au rover durant la nuit, alors que sa batterie était vide. Lors de son redémarrage aux premiers rayons du soleil, le rover récupère et exécute l'ensemble des commandes non traitées durant son sommeil.
 
 Vous pourrez notamment utiliser les différentes solutions de brokers disponibles sur le marché comme ActiveMQ, RabbitMQ, Kafka...
