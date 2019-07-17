@@ -95,7 +95,8 @@ Exemples de frameworks Front-End : Angular, React, VueJS, WebAssembly...
 
 #### FRO-2
 > **En tant que** client, **je veux** une interface de saisie des commandes **afin** de faciliter le pilotage du rover.
-  * Saisie d'une suite de commandes dans un input _ou_ clic sur les cases de la grille pour définir la prochaine action du rover, _ou_ ...
+
+Saisie d'une suite de commandes dans un input _ou_ clic sur les cases de la grille pour définir la prochaine action du rover, _ou_ ...
 
 #### FRO-3
 > **En tant que** client, **je veux** visualiser l'historique des commandes exécutées **afin** d'avoir un feedback immédiat.
