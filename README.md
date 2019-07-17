@@ -58,11 +58,16 @@ l'API, etc...
 ### API
 > ![todo](https://img.shields.io/badge/%23todo-lightgrey.svg) ![#technique](https://img.shields.io/badge/%23technique-red.svg)
 
-* Récupérer la position actuelle du rover.
-* Récupérer l'historique des commandes exécutées par le rover.
-* Envoyer une liste de commandes au rover et récupérer sa nouvelle position.
-* Technologies : Spring Boot, Spark Java, Akka Http, ...
-* Outils : curl, Postman, ...
+#### API-1
+> **En tant que** client, **je veux** récupérer la position actuelle du rover **afin** de pouvoir consulter cette information à distance.
+
+#### API-2
+> **En tant que** client, **je veux** récupérer l'historique des commandes exécutées par le rover **afin** de pouvoir réaliser un audit à distance.
+
+#### API-3
+> **En tant que** client, **je veux** envoyer une liste de commandes au rover et récupérer sa nouvelle position **afin** de le piloter à distance.
+
+* Technologies : Spring Boot, Spark Java, Akka Http, Quarkus, Resteasy, NestJS, Nancy ...
 
 
 ### Front-end
