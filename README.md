@@ -61,6 +61,8 @@ Imaginez que votre rover, fonctionnant à l'énergie solaire, exécute une séri
 
 ### API
 
+Nous vous proposons l'utilisation d'une de ces technologies : Spring Boot (Java), NestJS (TypeScript), Nancy (C#)...
+
 #### API-1
 > **En tant que** client, **je veux** récupérer la position actuelle du rover **afin** de pouvoir consulter cette information à distance.
 
@@ -70,11 +72,16 @@ Imaginez que votre rover, fonctionnant à l'énergie solaire, exécute une séri
 #### API-3
 > **En tant que** client, **je veux** envoyer une liste de commandes au rover et récupérer sa nouvelle position **afin** de le piloter à distance.
 
-* Technologies : Spring Boot, Spark Java, Akka Http, Quarkus, Resteasy, NestJS, Nancy ...
-* Queues
+#### API-4
+> **En tant que** client, **je veux** que le rover soit capable d'exécuter les commandes en attente suite à son redémarrage **afin** d'assurer la résilience de son système.
+Des commandes ont été envoyées au rover durant la nuit, alors que sa batterie était vide. Lors de son redémarrage aux premiers rayons du soleil, le rover récupère et exécute l'ensemble des commandes non traitées durant son sommeil.
+
+Vous pourrez notamment utiliser les différentes solutions de brokers disponibles sur le marché comme ActiveMQ, RabbitMQ, Kafka...
 
 
 ### Front-end
+
+Exemples de frameworks Front-End : Angular, React, VueJS, WebAssembly...
 
 #### FRO-1
 > **En tant que** client, **je veux** afficher le rover sur une grille **afin** de le situer dans son environnement.
@@ -88,8 +95,6 @@ Imaginez que votre rover, fonctionnant à l'énergie solaire, exécute une séri
 
 #### FRO-4
 > **En tant que** client, **je veux** pouvoir rejouer une suite de commandes depuis l'historique **afin** de faciliter le pilotage.
-
-* Technologie de front-end : Angular, React, VueJS, WebAssembly, ...
 
 
 ## Contributions
