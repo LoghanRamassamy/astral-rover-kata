@@ -3,7 +3,7 @@
 
 ## Contexte
 
-Cet exercice fait suite au kata [Mars Rover](http://kata-log.rocks/mars-rover-kata). Il a vocation à mettre l'accent sur les aspects techniques non abordés durant les quatre semaines de formation, mais auxquels vous serez invariablement confrontés dans vos missions : industrialisation de projet, persistence de données, mise en place d'une API, développement d'un front-end... 
+Cet exercice fait suite au kata [Mars Rover](https://katalyst.codurance.com/mars-rover). Il a vocation à mettre l'accent sur les aspects techniques non abordés durant les quatre semaines de formation, mais auxquels vous serez invariablement confrontés dans vos missions : industrialisation de projet, persistence de données, mise en place d'une API, développement d'un front-end... 
 
 [Forkez ce dépôt](https://github.com/lelionvert/astral-rover-kata/fork) et laissez-vous guider !
 
@@ -45,10 +45,10 @@ l'API, etc...
 ### Persistence
 > ![todo](https://img.shields.io/badge/%23todo-lightgrey.svg) ![#technique](https://img.shields.io/badge/%23technique-red.svg) ![#fonctionnel](https://img.shields.io/badge/%23fonctionnel-blue.svg)
 
-* Les commandes reçues par le rover doivent être persistées.
-* Le rover doit être capable de nous renvoyer les dernières commandes qu'il a exécuté.
-* À l'initialisation du rover, sa position doit correspondre à sa dernière position persistée _ou_ (N, 0, 0) par défaut.
-* Technologie de persistence : PostgreSQL, MongoDB, Redis, H2, SQLite, ...
+* US 1 : En tant qu'équipe Sécurité, je veux que le rover enregistre l'historique des commandes exécutées afin d'assurer son auditabilité.
+  * Technologie de persistence : PostgreSQL, MongoDB, Redis, H2, SQLite, ...
+
+* US 2 : En tant que PO, je veux que le rover récupère sa dernière position connue lors de son initialisation afin d'assurer sa survie en milieu hostile.
 
 
 ### API
