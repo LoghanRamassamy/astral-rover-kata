@@ -3,10 +3,7 @@
 
 ## Contexte
 
-Cet exercice fait suite au kata [Mars Rover](http://kata-log.rocks/mars-rover-kata). Il a vocation à mettre l'accent sur 
-les aspects techniques non abordés durant les quatre semaines de formation, mais auxquels vous serez invariablement 
-confrontés dans vos missions : industrialisation de projet, persistence de données, mise en place d'une API, développement
-d'un front-end... 
+Cet exercice fait suite au kata [Mars Rover](http://kata-log.rocks/mars-rover-kata). Il a vocation à mettre l'accent sur les aspects techniques non abordés durant les quatre semaines de formation, mais auxquels vous serez invariablement confrontés dans vos missions : industrialisation de projet, persistence de données, mise en place d'une API, développement d'un front-end... 
 
 [Forkez ce dépôt](https://github.com/lelionvert/astral-rover-kata/fork) et laissez-vous guider !
 
@@ -26,11 +23,23 @@ l'API, etc...
 ### Industrialisation
 > ![#todo](https://img.shields.io/badge/%23todo-lightgrey.svg) ![#technique](https://img.shields.io/badge/%23technique-red.svg)
 
-* Projet Gralde/Maven multi-modules.
-* Java 11 : modules, JRE personnalisé ne contenant que les modules nécessaires.
-* Docker.
-* Intégration continue : TravisCI, CircleCI, GitlabCI, Jenkins pipeline ... + badge README.
-* Code coverage : CodeCov, ... + badge README.
+* US 1 : En tant que PO, je veux avoir un feedback sur l'état du rover afin d'assurer sa non regression entre chaque livraison.
+  * Intégration continue :
+    * Solutions cloud : TravisCI, CircleCI, GitlabCI ... + badge README.
+    * Solution à intaller sur sa machine/serveur : Jenkins (pipeline)
+
+* US 2 : En tant que PO, je veux avoir un indicateur de qualité du code afin de garantir sa maintenabilité.
+  * Couverture de code, sécurité du code, dette technique.
+    * Solutions cloud : CodeCov, CoverAlls, SonarCloud ... + badge README
+    * Solution à installer : Sonarqube
+
+* US 3 : En tant que PO, je veux simplifier le processus de déploiement afin de garantir le bon fonctionnement du rover quelque soit son environnement.
+  * Docker
+  * Java 11+ : Générer un JRE custom avec jlink
+
+* US 4 : En tant qu'équipe, je veux organiser mon projet en modules afin d'isoler les responsabilités techniques.
+  * Projet multi-modules Maven/Gradle (Java), NuGet (C#)
+  * Java 9+ : S'assurer que chaque module Gradle/Maven expose un module-info.java
 
 
 ### Persistence
