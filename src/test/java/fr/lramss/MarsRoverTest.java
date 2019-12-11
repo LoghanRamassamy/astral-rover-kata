@@ -6,15 +6,10 @@ import java.sql.PreparedStatement;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest {
-    /**
-     * Rigorous Test :-)
-     */
+public class MarsRoverTest {
+
     @Test
-    public void toto() {
+    public void execute_one_move() {
         MarsRover marsRover = new MarsRover();
         assertThat(marsRover.execute("M")).isEqualTo("0:1:N");
     }
