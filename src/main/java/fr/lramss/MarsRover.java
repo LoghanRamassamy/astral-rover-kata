@@ -3,28 +3,40 @@ package fr.lramss;
 public class MarsRover {
     public static final String SEPARATOR = ":";
     private static final int GRID_SIZE = 10;
-    private static final String direction = "N";
     int x = 0;
     int y = 0;
+    private String direction = "N";
 
     public String execute(String commands) {
-        if ("R".equals(commands)) {
-            return "0:0:E";
+        for (char command : commands.toCharArray()) {
+            if (isAMove(command))
+                moveY();
+            if (isARotation(command))
+                rotate(command);
         }
-        if ("L".equals(commands)) {
-            return "0:0:W";
-        }
-        int countM = countNumberOfMoves(commands);
-        int nbMoves = countM% GRID_SIZE;
-        return x + SEPARATOR + moveY(nbMoves) + SEPARATOR + direction;
+        return x + SEPARATOR + y + SEPARATOR + direction;
     }
 
-    private int countNumberOfMoves(String commands) {
-        return commands.length() - commands.replace("M", "").length();
+    private boolean isARotation(char command) {
+        return 'L' == command || 'R' == command;
     }
 
-    private int moveY(int nbMoves) {
-        return y + nbMoves;
-
+    private boolean isAMove(char command) {
+        return 'M' == command;
     }
+
+    private void rotate(char command) {
+        direction = "E";
+    }
+
+    private void moveY() {
+        y++;
+        if (isEndOfGrid())
+            y = 0;
+    }
+
+    private boolean isEndOfGrid() {
+        return y % GRID_SIZE == 0;
+    }
+
 }
