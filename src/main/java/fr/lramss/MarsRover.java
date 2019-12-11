@@ -14,8 +14,13 @@ public class MarsRover {
         if ("L".equals(commands)) {
             return "0:0:W";
         }
-        int nbMoves = commands.length() % GRID_SIZE;
+        int countM = countNumberOfMoves(commands);
+        int nbMoves = countM% GRID_SIZE;
         return x + SEPARATOR + moveY(nbMoves) + SEPARATOR + direction;
+    }
+
+    private int countNumberOfMoves(String commands) {
+        return commands.length() - commands.replace("M", "").length();
     }
 
     private int moveY(int nbMoves) {
