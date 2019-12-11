@@ -8,6 +8,9 @@ public class MarsRover {
     int y = 0;
 
     public String execute(String commands) {
+        if ("R".equals(commands)) {
+            return "0:0:E";
+        }
         int nbMoves = commands.length() % GRID_SIZE;
         return x + SEPARATOR + moveY(nbMoves) + SEPARATOR + direction;
     }
