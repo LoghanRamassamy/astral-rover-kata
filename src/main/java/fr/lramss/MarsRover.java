@@ -5,7 +5,7 @@ public class MarsRover {
     int y = 0;
 
     public String execute(String commands) {
-        int nbMoves = commands.length();
+        int nbMoves = commands.length()%10;
         return x + ":" + moveY(nbMoves) + ":N";
     }
 

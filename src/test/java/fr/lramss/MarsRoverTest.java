@@ -1,5 +1,6 @@
 package fr.lramss;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -20,5 +21,16 @@ public class MarsRoverTest {
         String result = marsRover.execute(commands);
         // Then
         assertThat(result).isEqualTo(expected);
+    }
+
+    // reaches the end of the grid
+    @Test
+    public void reach_the_end_of_grid() {
+        // Given
+        MarsRover marsRover = new MarsRover();
+        // When
+        String result = marsRover.execute("MMMMMMMMMM");
+        // Then
+        assertThat(result).isEqualTo("0:0:N");
     }
 }
