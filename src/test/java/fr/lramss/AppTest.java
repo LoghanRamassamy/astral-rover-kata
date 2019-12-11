@@ -2,6 +2,8 @@ package fr.lramss;
 
 import org.junit.jupiter.api.Test;
 
+import java.sql.PreparedStatement;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -12,7 +14,8 @@ public class AppTest {
      * Rigorous Test :-)
      */
     @Test
-    public void shouldAnswerWithTrue() {
-        assertThat(true).isTrue();
+    public void toto() {
+        MarsRover marsRover = new MarsRover();
+        assertThat(marsRover.execute("M")).isEqualTo("0:1:N");
     }
 }
