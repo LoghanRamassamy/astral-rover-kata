@@ -15,7 +15,7 @@ public class MarsRoverTest {
     }
 
     @Test
-    public void execute_two_move() {
+    public void execute_two_moves() {
         MarsRover marsRover = new MarsRover();
         assertThat(marsRover.execute("MM")).isEqualTo("0:2:N");
     }
