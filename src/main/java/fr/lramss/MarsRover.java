@@ -11,6 +11,9 @@ public class MarsRover {
         if ("R".equals(commands)) {
             return "0:0:E";
         }
+        if ("L".equals(commands)) {
+            return "0:0:W";
+        }
         int nbMoves = commands.length() % GRID_SIZE;
         return x + SEPARATOR + moveY(nbMoves) + SEPARATOR + direction;
     }

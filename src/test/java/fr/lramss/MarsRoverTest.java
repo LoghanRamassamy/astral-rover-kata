@@ -47,4 +47,12 @@ public class MarsRoverTest {
         // Then
         assertThat(result).isEqualTo("0:0:E");
     }
+    @Test
+    public void left_rotation_of_rover() {
+
+        // When
+        String result = marsRover.execute("L");
+        // Then
+        assertThat(result).isEqualTo("0:0:W");
+    }
 }
