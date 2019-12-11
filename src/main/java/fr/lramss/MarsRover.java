@@ -1,13 +1,15 @@
 package fr.lramss;
 
 public class MarsRover {
+    public static final String SEPARATOR = ":";
     private static final int GRID_SIZE = 10;
+    private static final String direction = "N";
     int x = 0;
     int y = 0;
 
     public String execute(String commands) {
         int nbMoves = commands.length() % GRID_SIZE;
-        return x + ":" + moveY(nbMoves) + ":N";
+        return x + SEPARATOR + moveY(nbMoves) + SEPARATOR + direction;
     }
 
     private int moveY(int nbMoves) {
