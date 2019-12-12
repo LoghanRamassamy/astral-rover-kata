@@ -3,6 +3,9 @@ package fr.lramss;
 public class MarsRover {
     public static final String SEPARATOR = ":";
     private static final int GRID_SIZE = 10;
+    public static final char MOVE = 'M';
+    public static final char LEFT = 'L';
+    public static final char RIGHT = 'R';
     private int x;
     private int y;
     private Direction direction;
@@ -24,11 +27,11 @@ public class MarsRover {
     }
 
     private boolean isARotation(char command) {
-        return 'L' == command || 'R' == command;
+        return LEFT == command || RIGHT == command;
     }
 
     private boolean isAMove(char command) {
-        return 'M' == command;
+        return MOVE == command;
     }
 
     private void rotate(char command) {
