@@ -5,12 +5,12 @@ public class MarsRover {
     private static final int GRID_SIZE = 10;
     private int x;
     private int y;
-    private String direction;
+    private char direction;
 
     public MarsRover() {
         this.x = 0;
         this.y = 0;
-        this.direction = "N";
+        this.direction = 'N';
     }
 
     public String execute(String commands) {
@@ -32,7 +32,7 @@ public class MarsRover {
     }
 
     private void rotate(char command) {
-        direction = "E";
+        direction = 'E';
     }
 
     private void moveY() {
