@@ -31,6 +31,9 @@ public class MarsRover {
                 }
                 if (Direction.SOUTH.equals(direction)) {
                     y--;
+                    if (y < 0) {
+                        y = GRID_SIZE - 1;
+                    }
                 }
                 if (Direction.NORTH.equals(direction)) {
                     moveY();
