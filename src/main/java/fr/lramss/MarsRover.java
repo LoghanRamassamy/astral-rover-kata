@@ -23,7 +23,10 @@ public class MarsRover {
                 if (Direction.EAST.equals(direction)) {
                     moveX();
                 }
-                else {
+                if (Direction.SOUTH.equals(direction)) {
+                    y--;
+                }
+                if (Direction.NORTH.equals(direction)) {
                     moveY();
                 }
             }
