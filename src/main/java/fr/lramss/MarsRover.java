@@ -3,9 +3,15 @@ package fr.lramss;
 public class MarsRover {
     public static final String SEPARATOR = ":";
     private static final int GRID_SIZE = 10;
-    int x = 0;
-    int y = 0;
-    private String direction = "N";
+    private int x;
+    private int y;
+    private String direction;
+
+    public MarsRover() {
+        this.x = 0;
+        this.y = 0;
+        this.direction = "N";
+    }
 
     public String execute(String commands) {
         for (char command : commands.toCharArray()) {
