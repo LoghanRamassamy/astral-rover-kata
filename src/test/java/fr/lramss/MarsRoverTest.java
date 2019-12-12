@@ -76,4 +76,12 @@ public class MarsRoverTest {
         // Then
         assertThat(result).isEqualTo("0:1:S");
     }
+
+    @Test
+    public void move_rover_to_the_west() {
+        // When
+        String result = marsRover.execute("RMMRRM");
+        // Then
+        assertThat(result).isEqualTo("1:0:W");
+    }
 }

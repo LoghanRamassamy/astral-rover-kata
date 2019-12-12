@@ -23,6 +23,9 @@ public class MarsRover {
                 if (Direction.EAST.equals(direction)) {
                     moveX();
                 }
+                if (Direction.WEST.equals(direction)) {
+                    x--;
+                }
                 if (Direction.SOUTH.equals(direction)) {
                     y--;
                 }
