@@ -21,7 +21,7 @@ public class MarsRover {
         for (char command : commands.toCharArray()) {
             if (isAMove(command)) {
                 if (Direction.EAST.equals(direction)) {
-                    x++;
+                    moveX();
                 }
                 else {
                     moveY();
@@ -32,6 +32,10 @@ public class MarsRover {
             }
         }
         return x + SEPARATOR + y + SEPARATOR + direction;
+    }
+
+    private void moveX() {
+        x++;
     }
 
     private void rotate(char command) {
