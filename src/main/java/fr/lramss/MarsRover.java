@@ -34,10 +34,6 @@ public class MarsRover {
         return x + SEPARATOR + y + SEPARATOR + direction;
     }
 
-    private void moveX() {
-        x++;
-    }
-
     private void rotate(char command) {
         if (command == LEFT) {
             direction = direction.rotateLeft();
@@ -46,9 +42,16 @@ public class MarsRover {
         }
     }
 
+    private void moveX() {
+        x++;
+        if (isEndOfGrid(x)) {
+            x = 0;
+        }
+    }
+
     private void moveY() {
         y++;
-        if (isEndOfGrid()) {
+        if (isEndOfGrid(y)) {
             y = 0;
         }
     }
@@ -61,8 +64,8 @@ public class MarsRover {
         return MOVE == command;
     }
 
-    private boolean isEndOfGrid() {
-        return y % GRID_SIZE == 0;
+    private boolean isEndOfGrid(int aSide) {
+        return aSide % GRID_SIZE == 0;
     }
 
 }

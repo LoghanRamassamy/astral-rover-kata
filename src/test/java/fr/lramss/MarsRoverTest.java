@@ -30,7 +30,7 @@ public class MarsRoverTest {
     }
 
     @Test
-    public void reach_the_end_of_grid() {
+    public void reach_the_top_end_of_grid() {
         // When
         String result = marsRover.execute("M".repeat(10));
         // Then
@@ -59,5 +59,13 @@ public class MarsRoverTest {
         String result = marsRover.execute("RM");
         // Then
         assertThat(result).isEqualTo("1:0:E");
+    }
+
+    @Test
+    public void reach_the_right_end_of_grid() {
+        // When
+        String result = marsRover.execute("R" + "M".repeat(10));
+        // Then
+        assertThat(result).isEqualTo("0:0:E");
     }
 }
