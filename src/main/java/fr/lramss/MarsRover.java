@@ -20,30 +20,44 @@ public class MarsRover {
     public String execute(String commands) {
         for (char command : commands.toCharArray()) {
             if (isAMove(command)) {
-                if (Direction.EAST.equals(direction)) {
-                    moveX();
-                }
-                if (Direction.WEST.equals(direction)) {
-                    x--;
-                    if (x < 0) {
-                        x = GRID_SIZE - 1;
-                    }
-                }
-                if (Direction.SOUTH.equals(direction)) {
-                    y--;
-                    if (y < 0) {
-                        y = GRID_SIZE - 1;
-                    }
-                }
-                if (Direction.NORTH.equals(direction)) {
-                    moveY();
-                }
+                move();
             }
             if (isARotation(command)) {
                 rotate(command);
             }
         }
         return x + SEPARATOR + y + SEPARATOR + direction;
+    }
+
+    private void move() {
+        if (Direction.EAST.equals(direction)) {
+            x = movePositively(x);
+        }
+        if (Direction.WEST.equals(direction)) {
+            x = moveNegatively(x);
+        }
+        if (Direction.NORTH.equals(direction)) {
+            y = movePositively(y);
+        }
+        if (Direction.SOUTH.equals(direction)) {
+            y = moveNegatively(y);
+        }
+    }
+
+    private int movePositively(int position) {
+        position++;
+        if (position % GRID_SIZE == 0) {
+            position = 0;
+        }
+        return position;
+    }
+
+    private int moveNegatively(int position) {
+        position--;
+        if (position < 0) {
+            position = GRID_SIZE - 1;
+        }
+        return position;
     }
 
     private void rotate(char command) {
@@ -54,30 +68,12 @@ public class MarsRover {
         }
     }
 
-    private void moveX() {
-        x++;
-        if (isEndOfGrid(x)) {
-            x = 0;
-        }
-    }
-
-    private void moveY() {
-        y++;
-        if (isEndOfGrid(y)) {
-            y = 0;
-        }
-    }
-
     private boolean isARotation(char command) {
         return LEFT == command || RIGHT == command;
     }
 
     private boolean isAMove(char command) {
         return MOVE == command;
-    }
-
-    private boolean isEndOfGrid(int aSide) {
-        return aSide % GRID_SIZE == 0;
     }
 
 }
