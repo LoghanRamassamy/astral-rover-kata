@@ -15,38 +15,36 @@ public enum Direction {
         this.value = value;
     }
 
-    public Direction rotate(char command) {
-        if (command == 'L') return rotateLeft();
-        return rotateRight();
-    }
-
-    public Direction rotateLeft() {
-        int currentIndex = findCurrentIndex();
-        int indexNewDirection;
-        if (currentIndex == 0) {
-            indexNewDirection = VALUES.length - 1;
-        } else {
-            indexNewDirection = currentIndex - 1;
-        }
-        return VALUES[indexNewDirection];
-    }
-
-    private int findCurrentIndex() {
+    private int calculateCurrentIndex() {
         return IntStream.range(0, VALUES.length)
                 .filter(i -> VALUES[i].value == value)
                 .findFirst()
                 .orElse(0);
     }
 
+    public Direction rotateLeft() {
+        int currentIndex = calculateCurrentIndex();
+        return VALUES[calculateLeftIndex(currentIndex)];
+    }
+
     public Direction rotateRight() {
-        int currentIndex = findCurrentIndex();
-        int indexNewDirection;
-        if (currentIndex == VALUES.length - 1) {
-            indexNewDirection = 0;
-        } else {
-            indexNewDirection = currentIndex + 1;
+        int currentIndex = calculateCurrentIndex();
+        return VALUES[calculateRightIndex(currentIndex)];
+    }
+
+    private int calculateLeftIndex(int currentIndex) {
+        if (currentIndex == 0) {
+           return VALUES.length - 1;
         }
-        return VALUES[indexNewDirection];
+        return currentIndex-1;
+
+    }
+
+    private int calculateRightIndex(int currentIndex) {
+        if (currentIndex == VALUES.length - 1) {
+           return 0;
+        }
+        return  currentIndex + 1;
     }
 
     @Override

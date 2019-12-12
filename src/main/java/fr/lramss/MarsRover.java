@@ -2,10 +2,10 @@ package fr.lramss;
 
 public class MarsRover {
     public static final String SEPARATOR = ":";
-    private static final int GRID_SIZE = 10;
     public static final char MOVE = 'M';
     public static final char LEFT = 'L';
     public static final char RIGHT = 'R';
+    private static final int GRID_SIZE = 10;
     private int x;
     private int y;
     private Direction direction;
@@ -35,7 +35,12 @@ public class MarsRover {
     }
 
     private void rotate(char command) {
-        direction = direction.rotate(command);
+        if (command == LEFT) {
+            direction = direction.rotateLeft();
+        } else {
+            direction = direction.rotateRight();
+
+        }
     }
 
     private void moveY() {
