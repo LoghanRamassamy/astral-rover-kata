@@ -23,7 +23,6 @@ public class MarsRoverTest {
             "MMM, 0:3:N",
     })
     public void execute_straight_moves(String commands, String expected) {
-
         // When
         String result = marsRover.execute(commands);
         // Then
@@ -32,7 +31,6 @@ public class MarsRoverTest {
 
     @Test
     public void reach_the_end_of_grid() {
-
         // When
         String result = marsRover.execute("M".repeat(10));
         // Then
@@ -41,7 +39,6 @@ public class MarsRoverTest {
 
     @Test
     public void right_rotation_of_rover() {
-
         // When
         String result = marsRover.execute("R");
         // Then
@@ -50,7 +47,6 @@ public class MarsRoverTest {
 
     @Test
     public void left_rotation_of_rover() {
-
         // When
         String result = marsRover.execute("L");
         // Then

@@ -34,17 +34,16 @@ public enum Direction {
 
     private int calculateLeftIndex(int currentIndex) {
         if (currentIndex == 0) {
-           return VALUES.length - 1;
+            return VALUES.length - 1;
         }
-        return currentIndex-1;
-
+        return currentIndex - 1;
     }
 
     private int calculateRightIndex(int currentIndex) {
         if (currentIndex == VALUES.length - 1) {
-           return 0;
+            return 0;
         }
-        return  currentIndex + 1;
+        return currentIndex + 1;
     }
 
     @Override
