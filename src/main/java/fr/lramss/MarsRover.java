@@ -32,7 +32,8 @@ public class MarsRover {
     }
 
     private void rotate(char command) {
-        direction = 'E';
+        if(command == 'L') direction = 'W';
+        else direction = 'E';
     }
 
     private void moveY() {
