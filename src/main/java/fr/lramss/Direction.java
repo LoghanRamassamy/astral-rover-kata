@@ -4,7 +4,7 @@ import java.util.stream.IntStream;
 
 public enum Direction {
     NORTH('N'),
-    EST('E'),
+    EAST('E'),
     SOUTH('S'),
     WEST('W');
 

@@ -52,4 +52,12 @@ public class MarsRoverTest {
         // Then
         assertThat(result).isEqualTo("0:0:W");
     }
+
+    @Test
+    public void move_rover_to_the_right() {
+        // When
+        String result = marsRover.execute("RM");
+        // Then
+        assertThat(result).isEqualTo("1:0:E");
+    }
 }

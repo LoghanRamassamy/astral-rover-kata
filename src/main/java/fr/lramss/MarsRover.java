@@ -6,6 +6,7 @@ public class MarsRover {
     public static final char LEFT = 'L';
     public static final char RIGHT = 'R';
     private static final int GRID_SIZE = 10;
+
     private int x;
     private int y;
     private Direction direction;
@@ -18,12 +19,34 @@ public class MarsRover {
 
     public String execute(String commands) {
         for (char command : commands.toCharArray()) {
-            if (isAMove(command))
-                moveY();
-            if (isARotation(command))
+            if (isAMove(command)) {
+                if (Direction.EAST.equals(direction)) {
+                    x++;
+                }
+                else {
+                    moveY();
+                }
+            }
+            if (isARotation(command)) {
                 rotate(command);
+            }
         }
         return x + SEPARATOR + y + SEPARATOR + direction;
+    }
+
+    private void rotate(char command) {
+        if (command == LEFT) {
+            direction = direction.rotateLeft();
+        } else {
+            direction = direction.rotateRight();
+        }
+    }
+
+    private void moveY() {
+        y++;
+        if (isEndOfGrid()) {
+            y = 0;
+        }
     }
 
     private boolean isARotation(char command) {
@@ -32,21 +55,6 @@ public class MarsRover {
 
     private boolean isAMove(char command) {
         return MOVE == command;
-    }
-
-    private void rotate(char command) {
-        if (command == LEFT) {
-            direction = direction.rotateLeft();
-        } else {
-            direction = direction.rotateRight();
-
-        }
-    }
-
-    private void moveY() {
-        y++;
-        if (isEndOfGrid())
-            y = 0;
     }
 
     private boolean isEndOfGrid() {
