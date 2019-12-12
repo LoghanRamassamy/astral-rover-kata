@@ -84,4 +84,12 @@ public class MarsRoverTest {
         // Then
         assertThat(result).isEqualTo("1:0:W");
     }
+
+    @Test
+    public void reach_the_left_end_of_grid() {
+        // When
+        String result = marsRover.execute("LM");
+        // Then
+        assertThat(result).isEqualTo("9:0:W");
+    }
 }

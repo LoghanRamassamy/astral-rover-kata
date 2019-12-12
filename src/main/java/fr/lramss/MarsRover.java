@@ -25,6 +25,9 @@ public class MarsRover {
                 }
                 if (Direction.WEST.equals(direction)) {
                     x--;
+                    if (x < 0) {
+                        x = GRID_SIZE - 1;
+                    }
                 }
                 if (Direction.SOUTH.equals(direction)) {
                     y--;
