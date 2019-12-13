@@ -7,13 +7,13 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MarsRoverTest {
-    MarsRover marsRover;
+public class MarsTest {
+    Terminal mars;
 
     @BeforeEach
     void setUp() {
         // Given
-        marsRover = new MarsRover();
+        mars = new Terminal();
     }
 
     @ParameterizedTest
@@ -24,7 +24,7 @@ public class MarsRoverTest {
     })
     public void execute_straight_moves(String commands, String expected) {
         // When
-        String result = marsRover.execute(commands);
+        String result = mars.execute(commands);
         // Then
         assertThat(result).isEqualTo(expected);
     }
@@ -32,7 +32,7 @@ public class MarsRoverTest {
     @Test
     public void reach_the_top_end_of_grid() {
         // When
-        String result = marsRover.execute("M".repeat(10));
+        String result = mars.execute("M".repeat(10));
         // Then
         assertThat(result).isEqualTo("0:0:N");
     }
@@ -40,7 +40,7 @@ public class MarsRoverTest {
     @Test
     public void right_rotation_of_rover() {
         // When
-        String result = marsRover.execute("R");
+        String result = mars.execute("R");
         // Then
         assertThat(result).isEqualTo("0:0:E");
     }
@@ -48,7 +48,7 @@ public class MarsRoverTest {
     @Test
     public void left_rotation_of_rover() {
         // When
-        String result = marsRover.execute("L");
+        String result = mars.execute("L");
         // Then
         assertThat(result).isEqualTo("0:0:W");
     }
@@ -56,7 +56,7 @@ public class MarsRoverTest {
     @Test
     public void move_rover_to_the_right() {
         // When
-        String result = marsRover.execute("RM");
+        String result = mars.execute("RM");
         // Then
         assertThat(result).isEqualTo("1:0:E");
     }
@@ -64,7 +64,7 @@ public class MarsRoverTest {
     @Test
     public void reach_the_right_end_of_grid() {
         // When
-        String result = marsRover.execute("R" + "M".repeat(10));
+        String result = mars.execute("R" + "M".repeat(10));
         // Then
         assertThat(result).isEqualTo("0:0:E");
     }
@@ -72,7 +72,7 @@ public class MarsRoverTest {
     @Test
     public void move_rover_to_the_south() {
         // When
-        String result = marsRover.execute("MMRRM");
+        String result = mars.execute("MMRRM");
         // Then
         assertThat(result).isEqualTo("0:1:S");
     }
@@ -80,7 +80,7 @@ public class MarsRoverTest {
     @Test
     public void move_rover_to_the_west() {
         // When
-        String result = marsRover.execute("RMMRRM");
+        String result = mars.execute("RMMRRM");
         // Then
         assertThat(result).isEqualTo("1:0:W");
     }
@@ -88,7 +88,7 @@ public class MarsRoverTest {
     @Test
     public void reach_the_left_end_of_grid() {
         // When
-        String result = marsRover.execute("LM");
+        String result = mars.execute("LM");
         // Then
         assertThat(result).isEqualTo("9:0:W");
     }
@@ -96,7 +96,7 @@ public class MarsRoverTest {
     @Test
     public void reach_the_bottom_end_of_grid() {
         // When
-        String result = marsRover.execute("LLM");
+        String result = mars.execute("LLM");
         // Then
         assertThat(result).isEqualTo("0:9:S");
     }
@@ -105,9 +105,9 @@ public class MarsRoverTest {
     public void stop_when_encounters_an_obstacle() {
         Grid grid = new Grid(10, 10);
         grid.addObstacle(0, 3);
-        marsRover = new MarsRover(grid);
+        mars = new Terminal(grid);
         // When
-        String result = marsRover.execute("MMMM");
+        String result = mars.execute("MMMM");
         // Then
         assertThat(result).isEqualTo("O:0:2:N");
     }

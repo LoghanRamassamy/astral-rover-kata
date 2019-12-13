@@ -1,27 +1,34 @@
 package fr.lramss;
 
-public class MarsRover {
+public class Terminal {
 
     public static final char MOVE = 'M';
     public static final char LEFT = 'L';
     public static final char RIGHT = 'R';
+    private static final String SEPARATOR = ":";
     private final Rover rover;
     private Grid grid;
 
-    public MarsRover() {
-        this.rover = new Rover(new Grid(10, 10));
+    public Terminal() {
+        this.grid = new Grid(10, 10);
+        this.rover = new Rover(this.grid);
     }
 
-    public MarsRover(Grid grid) {
+    public Terminal(Grid grid) {
         this.grid = grid;
         this.rover = new Rover(this.grid);
     }
 
     public String execute(String commands) {
+
         for (char command : commands.toCharArray()) {
             if (isAMove(command)) {
-                boolean stop = rover.move();
-                if(stop) return "O:" + rover.toString();
+                Position nextPosition = rover.calculateNextPosition();
+                if (grid.isThereAnObstacleAt(nextPosition)) {
+                    String obstacleFlag = "O" + SEPARATOR;
+                    return obstacleFlag + rover.toString();
+                }
+                rover.moveTo(nextPosition);
 
             }
             if (isARotation(command)) {

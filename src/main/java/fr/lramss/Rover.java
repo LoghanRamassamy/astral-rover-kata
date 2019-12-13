@@ -4,14 +4,13 @@ public class Rover {
     private final String SEPARATOR = ":";
     private final char LEFT = 'L';
     private final char RIGHT = 'R';
+    private Position position;
     private Grid grid;
-    private int x;
-    private int y;
+
     private Direction direction;
 
     public Rover(Grid grid) {
-        this.x = 0;
-        this.y = 0;
+        position = new Position(0, 0);
         this.direction = Direction.NORTH;
         this.grid = grid;
     }
@@ -25,20 +24,20 @@ public class Rover {
         }
     }
 
-    public boolean move() {
-        int x = nextPositionX(this.x);
-        int y = nextPositionY(this.y);
-        if (grid.isThereAnObstacle(x, y)) {
-            return true;
-        }
-        this.x = x;
-        this.y = y;
-        return false;
+
+    public void moveTo(Position nextPosition) {
+        position = nextPosition;
+
+    }
+
+    public Position calculateNextPosition() {
+        int x = nextPositionX(position.getX());
+        int y = nextPositionY(position.getY());
+        return new Position(x, y);
     }
 
     private int nextPositionY(int position) {
         int result = 0;
-        // grille.getNextPosition(NORTH,x,y)
         if (Direction.NORTH.equals(this.direction)) {
             result = increment(position);
         }
@@ -78,6 +77,6 @@ public class Rover {
 
     @Override
     public String toString() {
-        return x + SEPARATOR + y + SEPARATOR + direction;
+        return position + SEPARATOR + direction;
     }
 }

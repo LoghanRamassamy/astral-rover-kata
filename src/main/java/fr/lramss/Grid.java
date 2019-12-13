@@ -15,8 +15,8 @@ public class Grid {
         this.values[x][y] = "O";
     }
 
-    public boolean isThereAnObstacle(int x, int y) {
-        return this.values[x][y] == "O";
+    public boolean isThereAnObstacleAt(Position p) {
+        return this.values[p.getX()][p.getY()] == "O";
     }
 
     public int getSize() {
