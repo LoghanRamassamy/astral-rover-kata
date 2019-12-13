@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MarsTest {
+public class TerminalTest {
     Terminal mars;
 
     @BeforeEach
@@ -111,6 +111,24 @@ public class MarsTest {
         // Then
         assertThat(result).isEqualTo("O:0:2:N");
     }
-
-
+    @Test
+    public void stop_when_encounters_an_obstacle_with_rotation() {
+        Grid grid = new Grid(10, 10);
+        grid.addObstacle(0, 3);
+        mars = new Terminal(grid);
+        // When
+        String result = mars.execute("MMMLM");
+        // Then
+        assertThat(result).isEqualTo("O:0:2:N");
+    }
+    @Test
+    public void stop_when_encounters_an_obstacle_wiqsd() {
+        Grid grid = new Grid(10, 10);
+        grid.addObstacle(0, 1);
+        mars = new Terminal(grid);
+        // When
+        String result = mars.execute("LMMMLM");
+        // Then
+        assertThat(result).isEqualTo("O:0:2:N");
+    }
 }
