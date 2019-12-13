@@ -4,7 +4,6 @@ public class Rover {
     private final String SEPARATOR = ":";
     private final char LEFT = 'L';
     private final char RIGHT = 'R';
-    private final int GRID_SIZE = 10;
     private Grid grid;
     private int x;
     private int y;
@@ -63,7 +62,7 @@ public class Rover {
 
     private int increment(int position) {
         position++;
-        if (position == GRID_SIZE) {
+        if (position == grid.getSize()) {
             position = 0;
         }
         return position;
@@ -72,7 +71,7 @@ public class Rover {
     private int decrement(int position) {
         position--;
         if (position == -1) {
-            position = GRID_SIZE - 1;
+            position = grid.getSize() - 1;
         }
         return position;
     }

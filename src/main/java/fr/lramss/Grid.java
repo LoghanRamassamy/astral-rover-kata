@@ -18,4 +18,8 @@ public class Grid {
     public boolean isThereAnObstacle(int x, int y) {
         return this.values[x][y] == "O";
     }
+
+    public int getSize() {
+        return this.width;
+    }
 }
