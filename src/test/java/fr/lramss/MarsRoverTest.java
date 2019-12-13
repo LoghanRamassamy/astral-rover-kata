@@ -100,4 +100,17 @@ public class MarsRoverTest {
         // Then
         assertThat(result).isEqualTo("0:9:S");
     }
+
+    @Test
+    public void stop_when_encounters_an_obstacle() {
+        Grid grid = new Grid(10, 10);
+        grid.addObstacle(0, 3);
+        marsRover = new MarsRover(grid);
+        // When
+        String result = marsRover.execute("MMMM");
+        // Then
+        assertThat(result).isEqualTo("O:0:2:N");
+    }
+
+
 }
